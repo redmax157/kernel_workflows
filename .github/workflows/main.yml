@@ -1,0 +1,17 @@
+# .github/workflows/ubuntu.yml
+name: Ubuntu SSH Access
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: false  # false = qualquer pessoa com o link pode conectar
